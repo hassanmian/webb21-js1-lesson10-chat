@@ -19,58 +19,25 @@
             const username = 'hassan' // Add a generic username here
             const url = `https://mock-data-api.firebaseio.com/webb21-chats/${username}/messages.json`
             const messageListContainer = document.getElementById("messageList")
-            /*
-                1. Hämta alla meddelanden
-                1.1 Rendera ut meddelanden på skärmen
-                2. Skicka ett meddelande
-                2.1 När vi har skickat ett meddelande, 
-                    så vill vi ladda in alla meddelanden igen
-            */
 
             function handleOnClick() {
-                const authorInput = document.getElementById("author")
-                const messageInput = document.getElementById("message")
-                const author = authorInput.value
-                const message = messageInput.value
-                sendMessage(author, message)
+                
             }
 
             function sendMessage(author, message) {
-                const payload = {
-                    author: author,
-                    message: message
-                }
-                fetch(url, {
-                    method: "POST",
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(payload)
-                })
-                .then(res => {
-                    getMessageList()
-                })
+               
             }
 
             function renderMessageItem(messageItem) {
-               const li = document.createElement('li')
-               li.innerText = `${messageItem.message} - by: ${messageItem.author}`
-               messageListContainer.append(li)
+               
             }
 
             function renderMessageList(data) {
-                messageListContainer.innerHTML = ""
-                Object.entries(data).forEach(item => {
-                    console.log(item)
-                    const messageItem = item[1]
-                    renderMessageItem(messageItem)
-                })
+              
             }
 
             function getMessageList() {
-                fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    renderMessageList(data)
-                })
+
             }
 
             getMessageList()
